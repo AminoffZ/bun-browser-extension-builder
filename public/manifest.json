@@ -6,22 +6,23 @@
     {
       "resources": ["script.js"],
 
-      "matches": ["https://github.com/*"]
+      "matches": ["http://*/*"]
     }
   ],
   "content_scripts": [
     {
-      "matches": ["https://github.com/*"],
+      "matches": ["http://*/*"],
       "js": ["content.js"],
-      "run_at": "document_end"
+      "css": ["style.css"]
     }
   ],
   "action": {
     "default_icon": "./images/icon256.png"
   },
-  "background": {
-    "service_worker": "./background.js",
-    "type": "module"
-  },
-  "permissions": ["storage"]
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "yourcustom@token.io",
+      "strict_min_version": "42.0"
+    }
+  }
 }
